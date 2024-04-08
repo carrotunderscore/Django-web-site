@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+</head>
+{% block content %}
+<body>
+    <div class="cardContainer" id="cardContainer">
+        {% for catObject in catObjectList %}
+        <a href="{% url 'cat_page_view' %}?id_cat={{ catObject.id_cat }}" class="cardLink" id="cardLink">
+        <div class="card" id="card">
+            <img src="{{ catObject.url }}" id="catPicture">
+            <div class="container">
+                <h4><p>Unnamed</p></h4>
+                <p>Rating: {{ catObject.rating }}</p>
+            </div>
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+
+
+</body>
+{% endblock %}
+</html>

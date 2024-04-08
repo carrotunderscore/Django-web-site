@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    {% csrf_token %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/catPage.css' %}">
+    <script src="{% static 'javascript/script.js' %}"></script>
+
+</head>
+<body>
+    <div class="cardContainer" id="cardContainer">
+        <div class="card" id="card">
+            <img src="{{ url }}" id="catPicture">
+            <div class="container">
+                {% if name != "null" %}
+                <h4 id="cardName"><p>Name: {{ name }}</p></h4>
+                {% else %}
+                <h4 id="cardName"><p>Name: please give me a name!</p></h4>
+                {% endif %}
+                <p id="cardBreed">Breed: {{ breed }}</p>
+                <p id="cardRating">Rating: {{ rating }}</p>
+                <input type="hidden" id="id_cat" name="id_cat" value="{{ id_cat }}">
+            </div>
+            {% if show_modal %}
+            <button class="button-49" id="button-49" role="button" data-bs-toggle="modal" data-bs-target="#myModal" onclick="loadRatingButtons()">Rate me!</button>
+            {% endif %}
+        </div>
+    </div>
+
+
+    <div class="container">
+      <ul class="nav bg-info">
+
+        <li class="nav-item">
+          <a class="nav-link link-light" href="/">HOME</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link link-light" href="/members">MEMBERS</a>
+        </li>
+
+      </ul>
+    </div>
+
+
+
+
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+            <div class="ratingDiv">
+                  <div class="row">
+                    <div class="col-xs-12">
+                        <div class="chart-scale">
+                            <button class="btn btn-scale btn-scale-desc-1" value="1">1</button>
+                            <button class="btn btn-scale btn-scale-desc-2" value="2">2</button>
+                            <button class="btn btn-scale btn-scale-desc-3" value="3">3</button>
+                            <button class="btn btn-scale btn-scale-desc-4" value="4">4</button>
+                            <button class="btn btn-scale btn-scale-desc-5" value="5">5</button>
+                            <button class="btn btn-scale btn-scale-desc-6" value="6">6</button>
+                            <button class="btn btn-scale btn-scale-desc-7" value="7">7</button>
+                            <button class="btn btn-scale btn-scale-desc-8" value="8">8</button>
+                            <button class="btn btn-scale btn-scale-desc-9" value="9">9</button>
+                            <button class="btn btn-scale btn-scale-desc-10" value="10">10</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div id="rateCatDiv">
+                <button type="button" class="btn btn-secondary" id="submitRateButton" onclick="submitRating()">Rate the cat!</button>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+
+</body>
+{% endblock %}
+</html>

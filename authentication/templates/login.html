@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/log_in.css' %}">
+    <meta charset="UTF-8">
+    <title>About Us</title>
+</head>
+<body>
+
+    <div class="formDiv">
+        <form method="post" action="{% url 'authentication:log_in_user' %}">
+            {% csrf_token %}
+            <h3>Login Here</h3>
+
+            <label for="username">Username</label>
+            <input type="text" placeholder="Email or Phone" id="username" name="username">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+
+            <button>Log In</button>
+            <a href="{% url 'authentication:signup_view' %}">Sign Up</a>
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

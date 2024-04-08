@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/sign_up_page.css' %}">
+    <meta charset="UTF-8">
+    <title>About Us</title>
+</head>
+<body>
+
+    <div class="formDiv">
+        <form method="post" action="{% url 'authentication:sign_up_user' %}">
+            {% csrf_token %}
+            <h3>Sign up</h3>
+
+            <label for="username">E-mail</label>
+            <input type="text" placeholder="Email" id="email" name="email">
+
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+
+            <label for="password">Repeat password</label>
+            <input type="password" placeholder="Password" id="password" name="password">
+
+            <label for="username">Username (Optional)</label>
+            <input type="text" placeholder="Email or Username" id="username" name="username">
+
+            <label for="username">First name (Optional)</label>
+            <input type="text" placeholder="First name" id="firstname" name="firstname">
+
+            <label for="username">Last name (Optional)</label>
+            <input type="text" placeholder="Last name" id="lastname" name="lastname">
+
+            <button>Sign up</button>
+
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

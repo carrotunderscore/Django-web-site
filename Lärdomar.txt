@@ -1,0 +1,20 @@
+ladda static files:
+Kunde inte ladda static när jag hade det så här:
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR / 'firstDjangoProject/static'),  # Point to your static folder
+]
+
+detta gav error att det var i fel dir så jag lade til firstDjangoProject
+os.path.join(BASE_DIR / static')
+MEN
+jag behövde göra så här för att det skulle funka
+
+os.path.join(BASE_DIR / 'firstDjangoProject')
+-----------------------------------------------------------------------------
+När du laddar upp till databasen så skapar du en migration först:
+
+python manage.py makemigrations firstDjangoProject
+
+och sen gör du själva migreringen:
+
+python manage.py migrate
