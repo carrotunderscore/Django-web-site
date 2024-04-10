@@ -8,7 +8,6 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 
-
 register = template.Library()
 
 
@@ -24,7 +23,8 @@ def card_list_view(request):
 
     widthHeightAverageList = calculate_average_picture_size(catObjectList)
     if len(widthHeightAverageList) > 1:
-        context = {'catObjectList': catObjectList, "width": widthHeightAverageList[0], "height": widthHeightAverageList[1]}
+        context = {'catObjectList': catObjectList, "width": widthHeightAverageList[0],
+                   "height": widthHeightAverageList[1]}
     else:
         context = {'catObjectList': catObjectList, "width": 400, "height": 500}
 
@@ -78,7 +78,6 @@ def add_to_database():
             print(f"Error: {response.status_code}")
 
 
-
 def cat_page_view(request):
     uniqueCatId = request.GET.get('id_cat')
     cat = Cat.objects.get(id_cat=uniqueCatId)
@@ -102,12 +101,3 @@ def rate_cat(request):
         return JsonResponse({'message': 'Function called successfully!'})  # Example response
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=400)
-
-
-
-
-
-
-
-
-

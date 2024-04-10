@@ -1,7 +1,7 @@
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
 
 def login_view(request):
@@ -10,6 +10,7 @@ def login_view(request):
 
 def log_in_user(request):
     if request.method == 'POST':
+        print(request)
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
@@ -17,7 +18,7 @@ def log_in_user(request):
             # authentication successful, log in the user
             login(request, user)
             # Redirect the user to a different page
-            return redirect('profile')
+            return render(request, 'profile.html')
         else:
             # authentication failed, display an error message
             return render(request, 'login.html', {'error_message': 'Invalid username or password'})
@@ -27,6 +28,7 @@ def log_in_user(request):
 
 
 def profile_view(request):
+    print("HEJ")
     if request.user.is_authenticated:
         context = {'username': request.user.username}
     else:
@@ -37,13 +39,12 @@ def profile_view(request):
 def sign_up_user(request):
     if request.method == 'POST':
         email = request.POST.get('email')
-
+        userName = request.POST.get('username')
         try:
-            user = User.objects.get(email=email)
+            user = User.objects.get(username=userName)
             return render(request, 'login.html', {'error_message': 'User already exists'})
         except User.DoesNotExist:
             password = request.POST.get('password')
-            userName = request.POST.get('username')
             firstName = request.POST.get('firstname')
             lastName = request.POST.get('lastname')
 
@@ -61,3 +62,8 @@ def sign_up_user(request):
 
 def signup_view(request):
     return render(request, 'signup_page.html')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')
