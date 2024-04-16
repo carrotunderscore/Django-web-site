@@ -1,52 +1,13 @@
-
-.header {
-  overflow: hidden;
-  background-color: #00E6F6;
-  padding: 20px 10px;
-  background: linear-gradient(45deg, transparent 3%, #00E6F6 10%, #00E6F6 5%, #FF013C 70%);
-
-}
-
-.header a {
-  float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 25px;
-  border-radius: 4px;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header a.active {
-}
-
-.header-right {
-  float: right;
-}
-
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
+.header_image{
+    width: 100%;
+    margin: auto;
     display: block;
-    text-align: left;
-  }
-  .header-right {
-    float: none;
-  }
 }
-
-
+.footer_image{
+    width: 100%;
+    margin: auto;
+    display: block;
+}
 
 .card:hover {
   box-shadow: 0 8px 16px 0 white;
@@ -62,23 +23,18 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
+  gap: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
-
-
-
+  padding-right: 20px;
 }
-
-
 a{
     text-decoration: none;
 }
 
-#catPicture{
-    height: 300px;
-    width: 300px;
-}
+
+
 .card{
   margin-top: 20px;
   margin-bottom: 20px;
@@ -116,5 +72,69 @@ a{
 }
 
 body{
-    background-color: #080710;
+    background-image: url("/static/images/BACKGROUND.png");
+    background-color: #000000;
+    background-size: contain;
+    background-position: center;
+    zoom: 70%;
+
 }
+
+
+.cardList{
+    padding-right: 50px;
+    padding-left: 50px;
+
+}
+.catCard{
+    position: relative;
+    z-index: 1;
+    transform: scale(0.7);
+}
+
+.pictureContainer{
+    position: relative;
+    left: 0px;
+    filter: drop-shadow(5px 5px 1px #4F2777);
+}
+.pictureContainer:hover {
+    filter: drop-shadow(5px 5px 1px #FDF277);
+
+}
+#catPicture{
+    height: 180px;
+    width: 250px;
+    position: absolute;
+    z-index: 3;
+    left: 55px;
+    top: 25px;
+    border-radius: 25px;
+}
+.cardName{
+    z-index: 3;
+    position: absolute;
+    left: 100px;
+    top: 290px;
+    color: #FDF277;
+    font-family: 'Bebas Neue', sans-serif;
+
+}
+.cardRating{
+    z-index: 3;
+    position: absolute;
+    left: 100px;
+    top: 335px;
+    color: #FDF277;
+    font-family: 'Bebas Neue', sans-serif;
+
+}
+.cardLink{
+    padding-bottom: 30px;
+    position: relative;
+}
+
+
+
+
+
+

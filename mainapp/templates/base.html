@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+<!---
     <header>
         <div class="header">
           <a class="logo">Cat page</a>
@@ -28,16 +29,21 @@
               </div>
         </div>
     </header>
+    --->
+     <header>
+         <img src="{% static 'images/HEADER.png' %}" alt="Cyberpunk Image" class="header_image">
+     </header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <div class="main_body">
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 
     <footer>
-        <div id="footerDiv" class="footerDiv">
-              <h1 id="hand" class="hand">👋</h1>
-        </div>
+        <img src="{% static 'images/FOOTER.png' %}" alt="Cyberpunk Image" class="footer_image">
     </footer>
+
 </body>
 </html>

@@ -7,6 +7,7 @@
 </head>
 {% block content %}
 <body>
+<!---
     <div class="cardContainer" id="cardContainer">
         {% for catObject in catObjectList %}
         <a href="{% url 'cat_page_view' %}?id_cat={{ catObject.id_cat }}" class="cardLink" id="cardLink">
@@ -20,7 +21,21 @@
         </a>
         {% endfor %}
     </div>
-
+--->
+    <div class="cardList">
+        <div class="cardContainer" id="cardContainer">
+            {% for catObject in catObjectList %}
+            <a href="{% url 'cat_page_view' %}?id_cat={{ catObject.id_cat }}" class="cardLink" id="cardLink">
+                <div class="pictureContainer">
+                    <img src="/static/images/CARD.png" id="catCard">
+                    <img src="{{ catObject.url }}" id="catPicture">
+                </div>
+                <h4 class="cardName"><p>Ryan Highcat</p></h4>
+                <p class="cardRating">Rating: {{ catObject.rating }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
 
 </body>
 {% endblock %}
