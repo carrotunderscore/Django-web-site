@@ -31,7 +31,23 @@
     </header>
     --->
      <header>
-         <img src="{% static 'images/HEADER.png' %}" alt="Cyberpunk Image" class="header_image">
+         <img src="{% static 'images/HEADER.png' %}" alt="Cyberpunk Image" class="header_image" usemap="#homeLinkMap">
+         <!--
+         <map name="homeLinkMap" class="homeLinkMap">
+            <area shape="rect" coords="1050,52,1367,256" href="{% url 'card_list_view' %}" id="area">
+         </map>
+         --->
+         <a class="active" href="{% url 'card_list_view' %}">
+             <canvas id="myCanvas" ></canvas>
+         </a>
+         {% if request.user.is_authenticated %}
+                    <a href="{% url 'authentication:profile_view' %}" class="usernameLink"><h1>Username</h1></a>
+                    <a href="{% url 'authentication:logout_user' %}" class="logoutLink"><h1>Log out</h1></a>
+
+                    {% else %}
+                    <a href="{% url 'authentication:login_view' %}" class="loginLink"><h1>Log in</h1></a>
+                    {% endif %}
+         <a href="{% url 'authentication:profile_view' %}" class="blogLink"><h1>Blog</h1></a>
      </header>
 
     <div class="main_body">
@@ -43,6 +59,7 @@
 
     <footer>
         <img src="{% static 'images/FOOTER.png' %}" alt="Cyberpunk Image" class="footer_image">
+        <a href="{% url 'authentication:profile_view' %}" class="linkedinLink"><h1>LinkedIn: </h1></a>
     </footer>
 
 </body>

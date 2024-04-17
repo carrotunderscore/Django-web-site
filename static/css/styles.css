@@ -1,4 +1,5 @@
 .header_image{
+    z-index: 0;
     width: 100%;
     margin: auto;
     display: block;
@@ -8,17 +9,14 @@
     margin: auto;
     display: block;
 }
-
 .card:hover {
   box-shadow: 0 8px 16px 0 white;
 }
-
 .container {
   color: black;
   padding: 2px 16px;
 
 }
-
 .cardContainer {
   display: flex;
   flex-direction: row;
@@ -32,32 +30,23 @@
 a{
     text-decoration: none;
 }
-
-
-
 .card{
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #00e4f5;
-
-
 }
-
 .hand {
     text-align:center;
     font-size: 6em;
 }
-
 .footerDiv {
     width: 100%;
     background-color: #f1f1f1;
     background: linear-gradient(transparent 3%, #00E6F6 5%, #00E6F6 5%, #FF013C 70%);
 }
-
 .hand:hover {
   animation: wave-animation 0.3s infinite;
 }
-
 @keyframes wave-animation {
   0%,
   100% {
@@ -70,17 +59,13 @@ a{
     transform: rotate(-15deg);
   }
 }
-
 body{
     background-image: url("/static/images/BACKGROUND.png");
     background-color: #000000;
     background-size: contain;
     background-position: center;
     zoom: 70%;
-
 }
-
-
 .cardList{
     padding-right: 50px;
     padding-left: 50px;
@@ -91,15 +76,13 @@ body{
     z-index: 1;
     transform: scale(0.7);
 }
-
 .pictureContainer{
     position: relative;
     left: 0px;
-    filter: drop-shadow(5px 5px 1px #4F2777);
+    filter: drop-shadow(5px 5px 1px #9a498c );
 }
 .pictureContainer:hover {
     filter: drop-shadow(5px 5px 1px #FDF277);
-
 }
 #catPicture{
     height: 180px;
@@ -123,16 +106,72 @@ body{
     z-index: 3;
     position: absolute;
     left: 100px;
-    top: 335px;
+    top: 330px;
     color: #FDF277;
     font-family: 'Bebas Neue', sans-serif;
-
 }
 .cardLink{
     padding-bottom: 30px;
     position: relative;
 }
+.cardLink:hover + .pictureContainer {
+  filter: drop-shadow(5px 5px 1px #FDF277);
+}
 
+#myCanvas{
+    position: absolute;
+    left: 43.4%;
+    top: 4.5%;
+    width: 13.2%;
+    height: 18%;
+
+}
+#myCanvas:hover{
+    filter: blur(1px);
+    border:2px solid #BA103F;
+    border-radius: 10px;
+}
+.loginLink{
+    position:absolute;
+    top: 11.3%;
+    left: 58.5%;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #F6F723;
+    -webkit-text-stroke:1px #4F2777
+
+}
+.logoutLink{
+    position:absolute;
+    top: 11.3%;
+    left: 92%;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #F6F723;
+    -webkit-text-stroke:1px #4F2777
+}
+.usernameLink{
+    position:absolute;
+    top: 11.3%;
+    left: 58.5%;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #F6F723;
+    -webkit-text-stroke:1px #4F2777
+
+}
+.blogLink{
+    position:absolute;
+    top: 11.3%;
+    left: 36%;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #F6F723;
+    -webkit-text-stroke:1px #4F2777
+
+}
+.linkedinLink{
+    bottom: 20%;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #BA103F;
+    -webkit-text-stroke:1px #F6F723
+}
 
 
 

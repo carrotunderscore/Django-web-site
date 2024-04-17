@@ -12,7 +12,7 @@ register = template.Library()
 
 
 def card_list_view(request):
-    first_ten_objects = Cat.objects.all()[:10]
+    first_ten_objects = Cat.objects.all()
     catObjectList = []
     # Access data from each object
     for row in first_ten_objects:
@@ -59,7 +59,7 @@ def add_to_database():
     pictureList = []
 
     # Call the API 10 times
-    for _ in range(10):
+    for _ in range(20):
         response = requests.get(base_url, headers=headers)
 
         # Check for successful response (status code 200)
