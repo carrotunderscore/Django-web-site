@@ -4,17 +4,23 @@
     margin: auto;
     display: block;
 }
-.footer_image{
-    width: 100%;
-    margin: auto;
-    display: block;
+a{
+    text-decoration: none;
 }
-.card:hover {
-  box-shadow: 0 8px 16px 0 white;
+html {
+  height: 100%;
 }
-.container {
-  color: black;
-  padding: 2px 16px;
+
+body{
+    background-image: url("/static/images/BACKGROUND.png");
+    background-color: #000000;
+    background-size: contain;
+    background-position: center;
+    zoom: 70%;
+
+    min-height: 100%;
+    margin: 0;
+  padding: 0;
 
 }
 .cardContainer {
@@ -27,48 +33,9 @@
   padding-bottom: 20px;
   padding-right: 20px;
 }
-a{
-    text-decoration: none;
-}
-.card{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  background-color: #00e4f5;
-}
-.hand {
-    text-align:center;
-    font-size: 6em;
-}
-.footerDiv {
-    width: 100%;
-    background-color: #f1f1f1;
-    background: linear-gradient(transparent 3%, #00E6F6 5%, #00E6F6 5%, #FF013C 70%);
-}
-.hand:hover {
-  animation: wave-animation 0.3s infinite;
-}
-@keyframes wave-animation {
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(20deg);
-  }
-  75% {
-    transform: rotate(-15deg);
-  }
-}
-body{
-    background-image: url("/static/images/BACKGROUND.png");
-    background-color: #000000;
-    background-size: contain;
-    background-position: center;
-    zoom: 70%;
-}
 .cardList{
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 1%;
+    padding-left: 2.5%;
 
 }
 .catCard{
@@ -160,18 +127,60 @@ body{
 .blogLink{
     position:absolute;
     top: 11.3%;
-    left: 36%;
+    left: 36.5%;
     font-family: 'Bebas Neue', sans-serif;
     color: #F6F723;
     -webkit-text-stroke:1px #4F2777
 
 }
-.linkedinLink{
-    bottom: 20%;
+.linkList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 29%;
+    left: 42%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.linkList li {
+    margin-right: 100%;
+}
+footer{
+    position:absolute;
+}
+.footer_image{
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+.iconLink{
     font-family: 'Bebas Neue', sans-serif;
     color: #BA103F;
     -webkit-text-stroke:1px #F6F723
 }
+
+#linkedinIcon:hover{
+    filter: contrast(20%);
+    transform: scale(1.2);
+    transition: transform .5s ease;
+}
+#githubIcon:hover{
+    filter: contrast(20%);
+    transform: scale(1.2);
+    transition: transform .5s ease;
+}
+
+#instagramIcon:hover{
+    transform: scale(1.2);
+    transition: transform .5s ease;
+    filter: contrast(20%);
+}
+
+
+
+
 
 
 
