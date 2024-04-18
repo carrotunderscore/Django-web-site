@@ -162,12 +162,10 @@ footer{
 }
 
 #linkedinIcon:hover{
-    filter: contrast(20%);
     transform: scale(1.2);
     transition: transform .5s ease;
 }
 #githubIcon:hover{
-    filter: contrast(20%);
     transform: scale(1.2);
     transition: transform .5s ease;
 }
@@ -175,7 +173,6 @@ footer{
 #instagramIcon:hover{
     transform: scale(1.2);
     transition: transform .5s ease;
-    filter: contrast(20%);
 }
 
 
