@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="cardContainer" id="cardContainer">
+        <!--
         <div class="card" id="card">
             <img src="{{ url }}" id="catPicture">
             <div class="container">
@@ -29,25 +30,33 @@
             <button class="button-49" id="button-49" role="button" data-bs-toggle="modal" data-bs-target="#myModal" onclick="loadRatingButtons()">Rate me!</button>
             {% endif %}
         </div>
+        -->
+
+            <div class="changeNameButtonCard">
+                <img src="/static/images/CARD_LOWER_PART.png" id="changeName">
+                <button class="button-49" id="button-49" role="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                        onclick="loadChangeNameModal()">Change name</button>
+            </div>
+
+            <div class="cardContainer" id="cardContainer">
+                <a href="" class="cardLink" id="cardLink">
+                    <div class="pictureContainer">
+                        <img src="/static/images/CARD.png" id="catCard">
+                        <img src="{{ url }}" id="catPicture">
+                    </div>
+                    <h4 class="cardName"><p>Ryan Highcat</p></h4>
+                    <h4 class="cardRating" id="cardRating">Rating: {{ rating }}</h4>
+                    <input type="hidden" id="id_cat" name="id_cat" value="{{ id_cat }}">
+                </a>
+            </div>
+
+            <div class="changeRatingButtonCard">
+                <img src="/static/images/CARD_LOWER_PART.png" id="changeRating">
+                 <button class="changeRatingButton" id="changeRatingButton" role="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                        onclick="loadRatingButtons()">Rate me!</button>
+            </div>
+
     </div>
-
-
-    <div class="container">
-      <ul class="nav bg-info">
-
-        <li class="nav-item">
-          <a class="nav-link link-light" href="/">HOME</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link link-light" href="/members">MEMBERS</a>
-        </li>
-
-      </ul>
-    </div>
-
-
-
 
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -89,6 +98,7 @@
           </div>
 
         </div>
+    </div>
     </div>
 
 

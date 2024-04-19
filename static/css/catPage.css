@@ -1,4 +1,4 @@
-/*Rate me button CSS*/
+/*Change name button CSS*/
 .button-49,
 .button-49:after {
   width: 150px;
@@ -6,16 +6,24 @@
   line-height: 78px;
   font-size: 20px;
   font-family: 'Bebas Neue', sans-serif;
-  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+  background: linear-gradient(45deg, transparent 5%, #BA103F 5%); /*Button color*/
+  /*
+  background: linear-gradient(45deg, transparent 0%, transparent 45%, #BA103F 45%, #BA103F 50%, transparent 50%, transparent 100%);
+*/
   border: 0;
   color: #fff;
   letter-spacing: 3px;
-  box-shadow: 6px 0px 0px #00E6F6;
+  box-shadow: 6px 0px 0px #FDF277; /*Button side color*/
   outline: transparent;
   position: relative;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  border-radius: 5%;
+
+  position: absolute;
+  left: 18%;
+  top: 8%;
 
 }
 
@@ -43,6 +51,64 @@
   animation: 1s glitch;
   animation-timing-function: steps(2, end);
 }
+
+/*Change rating button*/
+/*Rate me button CSS*/
+.changeRatingButton,
+.changeRatingButton:after {
+  width: 50%;
+  height: 76px;
+  line-height: 78px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #BA103F 5%); /*Button color*/
+  /*
+  background: linear-gradient(45deg, transparent 0%, transparent 45%, #BA103F 45%, #BA103F 50%, transparent 50%, transparent 100%);
+*/
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #FDF277; /*Button side color*/
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  border-radius: 5%;
+
+  position: absolute;
+  left: 23%;
+  top: 8%;
+
+}
+.changeRatingButton:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+
+  --slice-3: inset(10% -6px 85% 0);
+
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  content: 'RATE ME RATE ME';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+.changeRatingButton:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
 
 @keyframes glitch {
   0% {
@@ -224,6 +290,39 @@ p{
     justify-content: center;
     align-items: center;  /* Optional for vertical centering */
 }
+
+.pictureRowContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.changeNameButtonCard{
+    position: relative;
+    top: 5%;
+}
+.changeRatingButtonCard{
+    position: relative;
+    top: 5%;
+}
+.cardContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 1.6%;
+}
+
+#myModal {
+  position: fixed;
+  zoom: 120%;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: rgba(0,0,0,0.5);
+}
+
+
+
 
 
 
