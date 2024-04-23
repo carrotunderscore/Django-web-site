@@ -1,12 +1,10 @@
-from django.contrib.auth.models import User
-from django.http import JsonResponse, HttpResponse
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import render
 import requests
 from django import template
 from .models import Cat
 import json
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+
 
 register = template.Library()
 
@@ -18,7 +16,7 @@ def card_list_view(request):
     for row in first_ten_objects:
         # Access other fields as needed
         picture_object = {"id_cat": row.id_cat, "breed": row.breed, 'url': row.url, 'width': row.width,
-                          'height': row.height, "rating": row.rating}
+                          'height': row.height, "rating": row.rating, "name": row.name}
         catObjectList.append(picture_object)
 
     widthHeightAverageList = calculate_average_picture_size(catObjectList)
@@ -96,6 +94,22 @@ def rate_cat(request):
 
         cat_to_update = Cat.objects.get(id_cat=cat_id)
         cat_to_update.rating = cat_rating
+        cat_to_update.save()
+
+        return JsonResponse({'message': 'Function called successfully!'})  # Example response
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+def change_cat_name(request):
+    if request.method == 'POST':  # Adjust method if necessary
+        data = json.load(request)
+        catObject = data.get('catObject')
+        cat_name = catObject['name']
+        cat_id = catObject.get('catId')
+
+        cat_to_update = Cat.objects.get(id_cat=cat_id)
+        cat_to_update.name = cat_name
         cat_to_update.save()
 
         return JsonResponse({'message': 'Function called successfully!'})  # Example response

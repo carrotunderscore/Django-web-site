@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    {% csrf_token %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="{% static 'javascript/blog.js' %}"></script>
+
+</head>
+<body>
+
+    <div class="header">
+      <h2>Admin page</h2>
+    </div>
+
+    <div class="row">
+      <div class="leftcolumn">
+          <div class="card">
+              <h2>Create post</h2>
+                  <div class="form-group">
+                  <label>Title</label>
+                  <textarea class="form-control" id="blogPostTitle" rows="1"></textarea>
+                  <label>Content</label>
+                  <textarea class="form-control" id="blogPostTextbox" rows="23"></textarea>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="rightcolumn">
+
+          <div class="card">
+              <a class="btn btn-primary" id="createPost" onclick="publishBlogPost()" role="button"><h1>Publish post</h1></a>
+          </div>
+
+
+          <div class="card">
+              <h3>Unpublished posts</h3>
+              <p>post1</p>
+              <p>post2</p>
+          </div>
+
+          <div class="card">
+              <h3>Posts</h3>
+              <div class="fakeimg">Image</div><br>
+              <div class="fakeimg">Image</div><br>
+              <div class="fakeimg">Image</div>
+          </div>
+
+
+      </div>
+    </div>
+
+</body>
+{% endblock %}
+</html>

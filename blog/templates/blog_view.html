@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    {% csrf_token %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+     <div class="header">
+      <h2>Admin page</h2>
+    </div>
+    {% else %}
+    <div class="header">
+      <h2>Carrotunderscore (Robert Gustafsson) </h2>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="leftcolumn">
+        {% for blogPost in blogList %}
+          <div class="card">
+              <h2>{{ blogPost.title }}</h2>
+              <h5>{{ blogPost.published_date }}</h5>
+              <p>{{ blogPost.content|safe }}</p>
+              {% if request.user.is_authenticated %}
+              <button type="button" class="btn btn-outline-danger">Delete post</button>
+
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="rightcolumn">
+        {% if request.user.is_authenticated %}
+         <div class="card">
+              <a class="btn btn-primary" id="createPost" href="{% url 'blog:create_post_view' %}" role="button"><h1>Create post</h1></a>
+         </div>
+        {% else %}
+        <div class="card">
+          <h2>About Me</h2>
+              <div class="fakeimg" style="height:100px;">Image</div>
+          <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+        {% endif %}
+
+
+
+        {% if request.user.is_authenticated %}
+        <div class="card">
+              <h3>Unpublished posts</h3>
+              <p>post1</p>
+              <p>post2</p>
+          </div>
+        {% else %}
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div>
+        </div>
+        {% endif %}
+
+
+
+
+        {% if request.user.is_authenticated %}
+        <div class="card">
+              <h3>Posts</h3>
+              <div class="fakeimg">Image</div><br>
+              <div class="fakeimg">Image</div><br>
+              <div class="fakeimg">Image</div>
+          </div>
+        {% else %}
+        <div class="card">
+          <h3>Follow Me</h3>
+          <p>Some text..</p>
+        </div>
+        {% endif %}
+
+
+
+      </div>
+    </div>
+
+</body>
+{% endblock %}
+</html>

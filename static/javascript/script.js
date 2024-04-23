@@ -48,4 +48,31 @@ function submitRating(){
     });
 }
 
+function changeName(){
+    input = document.getElementById("changeCatName").value;
+    console.log(input)
+    catObject = {
+        name: input,
+        catId: document.getElementById("id_cat").value
+    }
+
+    const csrftoken = document.querySelector('[name="csrfmiddlewaretoken"]').value;
+
+    fetch("/change_cat_name/", {
+      method: "POST",
+      credentials: "same-origin",
+      headers: {
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRFToken": csrftoken
+      },
+      body: JSON.stringify({catObject: catObject})
+    })
+    .then(response => {
+        document.getElementById("cardName").textContent = input
+    })
+    .then(data => {
+      console.log(data);
+    });
+}
+
 

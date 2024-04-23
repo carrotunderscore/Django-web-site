@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'mainapp',
     'requests',
     'django_bootstrap5',
-    'authentication'
+    'authentication',
+    'blog'
 ]
 
 MIDDLEWARE = [

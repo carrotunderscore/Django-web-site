@@ -34,8 +34,8 @@
 
             <div class="changeNameButtonCard">
                 <img src="/static/images/CARD_LOWER_PART.png" id="changeName">
-                <button class="button-49" id="button-49" role="button" data-bs-toggle="modal" data-bs-target="#myModal"
-                        onclick="loadChangeNameModal()">Change name</button>
+                <button class="button-49" id="button-49" role="button" data-bs-toggle="modal" data-bs-target="#myModal2"
+                        >Change name</button>
             </div>
 
             <div class="cardContainer" id="cardContainer">
@@ -44,7 +44,11 @@
                         <img src="/static/images/CARD.png" id="catCard">
                         <img src="{{ url }}" id="catPicture">
                     </div>
-                    <h4 class="cardName"><p>Ryan Highcat</p></h4>
+                    {% if name != 'null' %}
+                        <h4 class="cardName" id="cardName"><p>{{ name }}</p></h4>
+                    {% else %}
+                        <h4 class="cardName" id="cardName"><p>A cat has no name</p></h4>
+                    {% endif %}
                     <h4 class="cardRating" id="cardRating">Rating: {{ rating }}</h4>
                     <input type="hidden" id="id_cat" name="id_cat" value="{{ id_cat }}">
                 </a>
@@ -58,6 +62,7 @@
 
     </div>
 
+    <!--Rating modal-->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
 
@@ -90,6 +95,43 @@
 
             <div id="rateCatDiv">
                 <button type="button" class="btn btn-secondary" id="submitRateButton" onclick="submitRating()">Rate the cat!</button>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+    </div>
+    </div>
+
+    <!--Change name modal-->
+    <div class="modal fade" id="myModal2" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+
+            <div class="ratingDiv">
+                  <div class="row">
+                    <div class="col-xs-12">
+                        <div class="chart-scale">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="changeCatName" placeholder="Change the cats name!">
+                              </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div id="rateCatDiv">
+                <button type="button" class="btn btn-secondary" id="submitRateButton" onclick="changeName()">Change name</button>
             </div>
 
             <div class="modal-footer">

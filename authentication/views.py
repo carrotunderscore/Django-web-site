@@ -28,7 +28,6 @@ def log_in_user(request):
 
 
 def profile_view(request):
-    print("HEJ")
     if request.user.is_authenticated:
         context = {'username': request.user.username}
     else:

@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    overflow-x: hidden;
+}
+
+.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {
+  float: left;
+  width: 75%;
+}
+.form-group{
+    background-color: red;
+}
+
+.rightcolumn {
+  float: left;
+  width: 23%;
+}
+
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+.row{
+    zoom: 1.5;
+}
+.row:after {
+
+}
+.btn btn-primary{
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+p {
+  white-space: pre-wrap;
+}

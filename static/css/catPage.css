@@ -175,11 +175,7 @@ p{
     text-align: center;
 }
 
-#cardName{
-    border-top: 1px solid #00E6F6;
-    border-bottom: 1px solid #00E6F6;
-    width: 100%;
-}
+
 
 #cardBreed{
     text-align: center;
@@ -312,6 +308,15 @@ p{
 }
 
 #myModal {
+  position: fixed;
+  zoom: 120%;
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: rgba(0,0,0,0.5);
+}
+#myModal2 {
   position: fixed;
   zoom: 120%;
   top: 20%;

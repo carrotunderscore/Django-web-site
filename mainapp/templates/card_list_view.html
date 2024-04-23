@@ -16,7 +16,11 @@
                     <img src="/static/images/CARD.png" id="catCard">
                     <img src="{{ catObject.url }}" id="catPicture">
                 </div>
-                <h4 class="cardName"><p>Ryan Highcat</p></h4>
+                {% if catObject.name != 'null' %}
+                    <h4 class="cardName" id="cardName"><p>{{ catObject.name }}</p></h4>
+                {% else %}
+                    <h4 class="cardName" id="cardName"><p>A cat has no name</p></h4>
+                {% endif %}
                 <h4 class="cardRating">Rating: {{ catObject.rating }}</h4>
             </a>
             {% endfor %}
