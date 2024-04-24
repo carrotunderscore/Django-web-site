@@ -1,9 +1,9 @@
 import json
-
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BlogPost
+from .forms import NewPostForm, EditPostForm
 
 
 def blog_view(request):
@@ -15,7 +15,7 @@ def blog_view(request):
     blogPosts = BlogPost.objects.all()
     blogList = []
     for row in blogPosts:
-        blogObject = {"title": row.title, "content": row.content, "published_date": row.pub_date}
+        blogObject = {"title": row.title, "content": row.content, "published_date": row.pub_date, "blogPostId": row.id}
         blogList.append(blogObject)
 
     context = {'username': None, "blogList": blogList}
@@ -33,17 +33,42 @@ def create_post_view(request):
 
 def publish_post(request):
     if request.method == 'POST':
-        user = User.objects.get(pk=16)
-        data = json.load(request)
-        blogObject = data.get('blogObject')
-        title = blogObject['title']
-        content = blogObject['content']
-
-        newBlogPost = BlogPost(
-            title=title,
-            content=content,
-            author=user)
-        newBlogPost.save()
-        return render(request, 'blog_admin_view.html')
+        form = NewPostForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            content = form.cleaned_data['content']
+            user = User.objects.get(pk=16)
+            newBlogPost = BlogPost(
+                title=title,
+                content=content,
+                author=user)
+            newBlogPost.save()
+        return render(request, 'blog_view.html')
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+def delete_post(request):
+    if request.method == 'POST':
+        data = json.load(request)
+        blogObject = data.get('blogObject')
+        blogPostId = blogObject['blogPostId']
+
+        post = BlogPost.objects.get(id=blogPostId)
+        post.delete()
+
+
+def edit_post_view(request, pk):
+    post = BlogPost.objects.get(pk=pk)  # Get the post to edit
+
+    if request.method == 'POST':
+        form = EditPostForm(request.POST, instance=post)  # Pre-populate form
+        if form.is_valid():
+            form.save()  # Save changes to the database
+            return redirect('blog_list')  # Redirect after successful edit
+    else:
+        form = EditPostForm(instance=post)  # Create form with initial data
+
+    context = {'form': form, 'post': post}
+    return render(request, 'edit_post.html', context)
+

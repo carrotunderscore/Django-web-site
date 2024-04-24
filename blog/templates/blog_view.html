@@ -8,6 +8,7 @@
     {% csrf_token %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="{% static 'javascript/blog.js' %}"></script>
 
 </head>
 <body>
@@ -25,12 +26,14 @@
       <div class="leftcolumn">
         {% for blogPost in blogList %}
           <div class="card">
+              <input type="hidden" id="blogId">
               <h2>{{ blogPost.title }}</h2>
               <h5>{{ blogPost.published_date }}</h5>
-              <p>{{ blogPost.content|safe }}</p>
+              <p>{{ blogPost.content|safe|linebreaks }}</p>
               {% if request.user.is_authenticated %}
-              <button type="button" class="btn btn-outline-danger">Delete post</button>
-
+              <a class="btn btn btn-secondary" href="{% url 'blog:edit_post' blogPost.blogPostId %}" >Edit post</a>
+              <button type="button" class="btn btn-outline-danger" onclick="deletePost({{ blogPost.blogPostId }})">Delete post</button>
+              {% endif %}
           </div>
         {% endfor %}
       </div>

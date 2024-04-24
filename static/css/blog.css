@@ -18,7 +18,7 @@ body {
   float: left;
   width: 75%;
 }
-.form-group{
+#form-control-content{
     background-color: red;
 }
 
