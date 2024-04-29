@@ -3,9 +3,14 @@
 }
 
 body {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'test';
     overflow-x: hidden;
 }
+@font-face {
+  font-family: 'test';
+  src: url('{% static "fonts/GT-America/GT-America-Expanded-Bold-Trial.otf" %}') format('opentype');
+}
+
 
 .header {
   padding: 30px;
@@ -85,8 +90,10 @@ br {
     padding: 0;
   }
 }
-
-
-footer{
-
+@font-face {
+  font-family: 'GT America'; /* Name to reference the font */
+  src: url('{% static 'fonts/GT-America-Regular.ttf' %}') format('truetype'),
+       url('{% static 'fonts/GT-America-Bold.ttf' %}') format('truetype'),
+       /* Add additional font files for different weights/styles here */
 }
+
