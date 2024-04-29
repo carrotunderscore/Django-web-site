@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-)+2lcrmw-yw36!e4%0rrix!8f4tor6%=@!jskgf&6!8supqt9m
 DEBUG = True
 
 ALLOWED_HOSTS = ["www.yourdomain.com", "127.0.0.1"]
-
 
 # Application definition
 
@@ -79,8 +77,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
 )
 
-WSGI_APPLICATION = 'mainapp.wsgi.application'
+TEMPLATE_LOADERS = 'django.template.loaders.app_directories.load_template_source'
 
+WSGI_APPLICATION = 'mainapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -94,7 +93,6 @@ DATABASES = {
         'PORT': '3306',  # Default MySQL port (can be different if configured otherwise)
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -114,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -125,7 +122,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/

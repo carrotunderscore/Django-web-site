@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>HOME</title>
+    {% load markdown_tags %}
     {% csrf_token %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -29,10 +30,12 @@
               <input type="hidden" id="blogId">
               <h2>{{ blogPost.title }}</h2>
               <h5>{{ blogPost.published_date }}</h5>
-              <p>{{ blogPost.content|safe|linebreaks }}</p>
+              {% autoescape off %}
+                <p>{% markdown_heading blogPost.content|safe|linebreaks %} </p>
+              {% endautoescape %}
               {% if request.user.is_authenticated %}
-              <a class="btn btn btn-secondary" href="{% url 'blog:edit_post' blogPost.blogPostId %}" >Edit post</a>
-              <button type="button" class="btn btn-outline-danger" onclick="deletePost({{ blogPost.blogPostId }})">Delete post</button>
+                <a id="editButton" class="btn btn btn-secondary" href="{% url 'blog:edit_post' blogPost.blogPostId %}" >Edit post</a>
+                <button id="deleteButton" type="button" class="btn btn-outline-danger" onclick="deletePost({{ blogPost.blogPostId }})">Delete post</button>
               {% endif %}
           </div>
         {% endfor %}

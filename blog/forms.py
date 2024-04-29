@@ -12,8 +12,8 @@ class EditPostForm(forms.ModelForm):
         model = BlogPost
         fields = ['title', 'content']
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-control', 'id': 'form-control-title'}),
-            'content': forms.Textarea(attrs={'class': 'form-control', 'id': 'form-control-content', 'rows': 30}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'id': 'form-control-title', }),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'id': 'form-control-content', 'rows': 50}),
         }
 
 

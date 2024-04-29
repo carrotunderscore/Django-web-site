@@ -13,19 +13,54 @@ body {
   text-align: center;
   background: white;
 }
-
+.card {
+   background-color: white;
+   border-width: 0;
+   padding: 20px;
+   margin-top: 20px;
+}
 .leftcolumn {
   float: left;
-  width: 75%;
+  position: relative;
+  left: 25%;
+  width: 45%;
+  margin-bottom: 1%;
+  background-color: white;
 }
-#form-control-content{
-    background-color: red;
+.leftcolumn img{
+    width: 100%;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+}
+#contentText{
+    font-family: Courier New, monospace
+    font-size: 100%;
+    background-color: white;
+}
+form p {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+#editButton{
+    width: 20%;
+    margin-bottom: 1%;
+}
+#deleteButton{
+    width: 20%;
+
+}
+br {
+    margin-bottom: 1px;
+    background-color:green;
 }
 
 .rightcolumn {
   float: left;
+  position: absolute;
+  right: 1%;
   width: 23%;
 }
+
 
 .fakeimg {
   background-color: #aaa;
@@ -33,13 +68,10 @@ body {
   padding: 20px;
 }
 
-.card {
-   background-color: white;
-   padding: 20px;
-   margin-top: 20px;
-}
+
 .row{
     zoom: 1.5;
+
 }
 .row:after {
 
@@ -53,6 +85,8 @@ body {
     padding: 0;
   }
 }
-p {
-  white-space: pre-wrap;
+
+
+footer{
+
 }

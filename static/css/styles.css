@@ -12,8 +12,11 @@ html {
 }
 
 body{
+/*
     background-image: url("/static/images/BACKGROUND.png");
     background-color: #000000;
+  */
+    background-color: white;
     background-size: contain;
     background-position: center;
     zoom: 70%;
@@ -174,13 +177,5 @@ footer{
     transform: scale(1.2);
     transition: transform .5s ease;
 }
-
-
-
-
-
-
-
-
 
 

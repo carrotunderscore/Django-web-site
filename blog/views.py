@@ -59,15 +59,15 @@ def delete_post(request):
 
 
 def edit_post_view(request, pk):
-    post = BlogPost.objects.get(pk=pk)  # Get the post to edit
+    post = BlogPost.objects.get(pk=pk)
 
     if request.method == 'POST':
-        form = EditPostForm(request.POST, instance=post)  # Pre-populate form
+        form = EditPostForm(request.POST, instance=post)
         if form.is_valid():
-            form.save()  # Save changes to the database
-            return redirect('blog_list')  # Redirect after successful edit
+            form.save()
+            return redirect('/blog/')
     else:
-        form = EditPostForm(instance=post)  # Create form with initial data
+        form = EditPostForm(instance=post)
 
     context = {'form': form, 'post': post}
     return render(request, 'edit_post.html', context)
