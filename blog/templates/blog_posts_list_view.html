@@ -17,23 +17,36 @@
      <div class="header">
       <h2>Admin page</h2>
     </div>
-
     {% endif %}
+
+    <div class="pageHeader">
+        <h1 class="pageTitle">I am a fullstack developer based in Copenhagen.</h1>
+        <div class="linkListHeader">
+
+            <h4> /
+                <a href="https://www.linkedin.com/in/robert-gustafsson-bba35b1ba/" class="iconLink" id="linkedinLink">LinkedIn</a>
+            </h4>
+
+            <h4> /
+                <a href="https://github.com/carrotunderscore" class="iconLink" id="githubLink">Github</a>
+            </h4>
+
+            <h4> /
+                <a href="https://www.instagram.com/carrotunderscore/" class="iconLink" id="instagramLink">Instagram</a>
+            </h4>
+
+        </div>
+    </div>
 
     <div class="row">
       <div class="leftcolumn">
-          <div class="card">
+        {% for blogPost in blogList %}
+          <div class="blogListCard">
               <input type="hidden" id="blogId">
-              <h2>{{ blogList.title }}</h2>
-              <h5>{{ blogList.published_date }}</h5>
-              {% autoescape off %}
-                <p>{% markdown_heading blogList.content|safe|linebreaks %} </p>
-              {% endautoescape %}
-              {% if request.user.is_authenticated %}
-                <a id="editButton" class="btn btn btn-secondary" href="{% url 'edit_post' blogList.blogPostId %}" >Edit post</a>
-                <button id="deleteButton" type="button" class="btn btn-outline-danger" onclick="deletePost({{ blogPost.blogPostId }})">Delete post</button>
-              {% endif %}
+              <a href="{% url 'blog_post_view' blogPost.blogPostId %}"><h4>{{ blogPost.title }}</h4></a>
+              <span class="aligned-date">{{ blogPost.published_date }}</span>
           </div>
+        {% endfor %}
       </div>
 
       <div class="rightcolumn">

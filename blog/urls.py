@@ -23,7 +23,8 @@ urlpatterns = [
 
     path('authentication/', include('authentication.urls')),
 
-    path('', views.blog_view, name='blog_view'),
+    path('', views.blog_posts_list_view, name='blog_view'),
+    path('post/<int:pk>/', views.blog_post_view, name='blog_post_view'),
     path('create_post_view/', views.create_post_view, name='create_post_view'),
     path('publish_post/', views.publish_post, name='publish_post'),
     path('delete_post/', views.delete_post, name='delete_post'),

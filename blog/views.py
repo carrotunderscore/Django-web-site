@@ -6,25 +6,18 @@ from .models import BlogPost
 from .forms import NewPostForm, EditPostForm
 
 
-def blog_view(request):
+def blog_post_view(request, pk):
     if request.user.is_authenticated:
         username = request.user.username
     else:
         username = None
-
-    blogPosts = BlogPost.objects.all()
     blogList = []
-    for row in blogPosts:
-        blogObject = {"title": row.title, "content": row.content, "published_date": row.pub_date, "blogPostId": row.id}
-        blogList.append(blogObject)
+    post = BlogPost.objects.get(pk=pk)
+    blogObject = {"title": post.title, "content": post.content, "published_date": post.pub_date, "blogPostId": post.id}
 
-    context = {'username': None, "blogList": blogList}
+    context = {'username': None, "blogList": blogObject}
 
     return render(request, 'blog_view.html', context)
-
-
-def blog_admin_view():
-    return None
 
 
 def create_post_view(request):
@@ -65,10 +58,27 @@ def edit_post_view(request, pk):
         form = EditPostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            return redirect('/blog/')
+            return redirect('/post/'+str(pk))
     else:
         form = EditPostForm(instance=post)
 
     context = {'form': form, 'post': post}
     return render(request, 'edit_post.html', context)
+
+
+def blog_posts_list_view(request):
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = None
+
+    blogPosts = BlogPost.objects.all()
+    blogList = []
+    for row in blogPosts:
+        blogObject = {"title": row.title, "content": row.content, "published_date": row.pub_date, "blogPostId": row.id}
+        blogList.append(blogObject)
+
+    context = {'username': None, "blogList": blogList}
+
+    return render(request, 'blog_posts_list_view.html', context)
 

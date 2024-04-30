@@ -31,6 +31,7 @@ body {
   width: 45%;
   margin-bottom: 1%;
   background-color: white;
+  border-bottom: 1px solid #cccccc;
 }
 .leftcolumn img{
     width: 100%;
@@ -96,4 +97,52 @@ br {
        url('{% static 'fonts/GT-America-Bold.ttf' %}') format('truetype'),
        /* Add additional font files for different weights/styles here */
 }
+.blogListCard{
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-top: 1px solid #cccccc;
+}
+.aligned-date {
+
+  display: inline-block;
+}
+
+.pageHeader{
+    position: relative;
+    left: 25%;
+    width: 50%;
+    padding: 10px;
+}
+.pageTitle{
+    font-size: 450%;
+}
+
+.linkList{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    white-space: nowrap;
+    justify-content: space-around;
+}
+.linkListHeader{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    white-space: nowrap;
+    justify-content: space-around;
+    align-content: center;
+}
+.linkListHeader a{
+    margin-left: 2%;
+    color: #f32441;
+    position: relative;
+    left: 1%;
+}
+#githubIcon{
+    filter: contrast(0);
+}
+footer{
+    padding: 5%;
+}
+
 
