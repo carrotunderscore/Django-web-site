@@ -29,5 +29,9 @@ urlpatterns = [
     path('publish_post/', views.publish_post, name='publish_post'),
     path('delete_post/', views.delete_post, name='delete_post'),
     path('edit_post/<int:pk>/', views.edit_post_view, name='edit_post'),
-
+    path('projects', views.projects_list_view, name='projects_list_view'),
+    path('create_project_view/', views.create_project_view, name='create_project_view'),
+    path('publish_project/', views.publish_project, name='publish_project'),
+    path('project/<int:pk>/', views.project_view, name='project_view'),
+    path('delete_project/', views.delete_project, name='delete_project'),
 ]

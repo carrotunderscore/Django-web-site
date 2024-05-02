@@ -13,13 +13,13 @@
 </head>
 <body>
     {% if request.user.is_authenticated %}
-        <div class="header">
-            <h2>Blog (Admin page)</h2>
-        </div>
+     <div class="header">
+      <h2>Projects (Admin page)</h2>
+    </div>
     {% else %}
-        <div class="header">
-            <h2>Blog</h2>
-        </div>
+    <div class="header">
+      <h2>Projects</h2>
+    </div>
     {% endif %}
 
     <div class="pageHeader">
@@ -43,14 +43,29 @@
 
     <div class="row">
       <div class="leftcolumn">
-        {% for blogPost in blogList %}
+        {% for projectPost in projectList %}
           <div class="blogListCard">
               <input type="hidden" id="blogId">
-              <a href="{% url 'blog_post_view' blogPost.blogPostId %}"><h4>{{ blogPost.title }}</h4></a>
-              <span class="aligned-date">{{ blogPost.published_date }}</span>
+              <a href="{% url 'project_view' projectPost.blogPostId %}">
+                  <h4>{{ projectPost.title }}</h4>
+                  <img src="{{ projectPost.imageUrl }}">
+              </a>
+              <span class="aligned-date">{{ projectPost.published_date }}</span>
           </div>
         {% endfor %}
+
+        <div class="rightcolumn">
+            {% if request.user.is_authenticated %}
+                <div class="card">
+                    <a class="btn btn-primary" id="createPost" href="{% url 'create_project_view' %}" role="button"><h1>Create project</h1></a>
+                </div>
+            {% endif %}
+        </div>
+
       </div>
+
+
+
 
       </div>
     </div>

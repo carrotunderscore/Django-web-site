@@ -9,7 +9,7 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
 
@@ -23,7 +23,7 @@
              <div class="linkDiv" id="linkDiv">
 
                  <a href="{% url 'blog_view' %}" class="blogLink"><h5><b>Blog</b></h5></a>
-                 <a href="{% url 'blog_view' %}" class="blogLink"><h5><b>Projects</b></h5></a>
+                 <a href="{% url 'projects_list_view' %}" class="blogLink"><h5><b>Projects</b></h5></a>
                  {% if request.user.is_authenticated %}
                     <a href="{% url 'authentication:profile_view' %}" class="usernameLink"><h5><b>Username</b></h5></a>
                     <a href="{% url 'authentication:logout_user' %}" class="logoutLink"><h5><b>Log out</b></h5></a>

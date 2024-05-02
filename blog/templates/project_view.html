@@ -24,14 +24,15 @@
       <div class="leftcolumn">
           <div class="card">
               <input type="hidden" id="blogId">
-              <h2>{{ blogList.title }}</h2>
-              <h5>{{ blogList.published_date }}</h5>
+              <h2>{{ project.title }}</h2>
+              <h5>{{ project.published_date }}</h5>
+              <img src="{{ project.imageUrl }}">
               {% autoescape off %}
-                <p>{% markdown_heading blogList.content|safe|linebreaks %} </p>
+                <p>{% markdown_heading project.content|safe|linebreaks %} </p>
               {% endautoescape %}
               {% if request.user.is_authenticated %}
-                <a id="editButton" class="btn btn btn-secondary" href="{% url 'edit_post' blogList.blogPostId %}" >Edit post</a>
-                <button id="deleteButton" type="button" class="btn btn-outline-danger" onclick="deletePost({{ blogList.blogPostId }})">Delete post</button>
+                <a id="editButton" class="btn btn btn-secondary" href="{% url 'edit_post' project.projectId %}" >Edit post</a>
+                <button id="deleteButton" type="button" class="btn btn-outline-danger" onclick="deleteProject({{ project.projectId }})">Delete post</button>
               {% endif %}
           </div>
       </div>
