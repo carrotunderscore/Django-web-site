@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from .models import BlogPost
 from .models import Projects
-from .forms import NewPostForm, EditPostForm
+from .forms import NewPostForm, EditPostForm, EditProjectForm
 
 
 def blog_post_view(request, pk):
@@ -145,11 +145,10 @@ def project_view(request, pk):
         "content": post.content,
         "published_date": post.pub_date,
         "projectId": post.id,
-        "imageUrl": post.image_url
+        "imageUrl": post.image_url,
+        "githubUrl": post.github_url
     }
-
     context = {'username': None, "project": projectObject}
-
     return render(request, 'project_view.html', context)
 
 
@@ -161,4 +160,19 @@ def delete_project(request):
 
         post = Projects.objects.get(id=projectId)
         post.delete()
+
+
+def edit_project_view(request, pk):
+    project = Projects.objects.get(pk=pk)
+
+    if request.method == 'POST':
+        form = EditProjectForm(request.POST, instance=project)
+        if form.is_valid():
+            form.save()
+            return redirect('/project/' + str(pk))
+    else:
+        form = EditPostForm(instance=project)
+
+    context = {'form': form, 'post': project}
+    return render(request, 'edit_project.html', context)
 

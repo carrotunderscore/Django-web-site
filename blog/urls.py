@@ -34,4 +34,5 @@ urlpatterns = [
     path('publish_project/', views.publish_project, name='publish_project'),
     path('project/<int:pk>/', views.project_view, name='project_view'),
     path('delete_project/', views.delete_project, name='delete_project'),
+    path('edit_project/<int:pk>/', views.edit_project_view, name='edit_project'),
 ]

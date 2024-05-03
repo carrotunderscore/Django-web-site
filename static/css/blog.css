@@ -37,7 +37,6 @@ body {
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 }
 #contentText{
-    font-family: Courier New, monospace
     font-size: 100%;
     background-color: white;
 }
@@ -59,18 +58,11 @@ br {
     background-color:green;
 }
 
-
-
-
 .fakeimg {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
 }
-
-
-
-
 
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {
@@ -79,10 +71,9 @@ br {
   }
 }
 @font-face {
-  font-family: 'GT America'; /* Name to reference the font */
-  src: url('{% static 'fonts/GT-America-Regular.ttf' %}') format('truetype'),
-       url('{% static 'fonts/GT-America-Bold.ttf' %}') format('truetype'),
-       /* Add additional font files for different weights/styles here */
+  font-family: 'GT America';
+  src: url("{% static 'fonts/GT-America-Regular.ttf' %}') format('truetype"),
+       url("{% static 'fonts/GT-America-Bold.ttf' %}') format('truetype"),
 }
 .blogListCard{
     padding-top: 5%;
@@ -102,6 +93,7 @@ br {
 }
 .pageTitle{
     font-size: 450%;
+
 }
 
 .linkList{
@@ -116,21 +108,25 @@ br {
     flex-direction: row;
     list-style: none;
     white-space: nowrap;
-    justify-content: space-around;
-    align-content: center;
+    align-content: left;
 }
 .linkListHeader a{
-    margin-left: 2%;
     color: #f32441;
     position: relative;
     left: 1%;
 }
+.linkListHeader h4{
+    padding-right: 1%;
+
+}
+.linkListHeader b{
+    font-weight: bold;
+
+}
 #githubIcon{
     filter: contrast(0);
 }
-/*------------------------------------------------------------------------------*/
-
-        .cardLink:hover + .pictureContainer {
+.cardLink:hover + .pictureContainer {
   filter: drop-shadow(5px 5px 1px #FDF277);
 }
 .pictureContainer:hover {
@@ -197,17 +193,14 @@ a:hover{
     padding-bottom: 2.5rem;
     position: relative;
 }
-.row{
-    zoom: 1.5;
-    padding-bottom: 2.5rem;
-    position: relative;
-}
+
 footer {
   position: relative;
   bottom: 0;
   width: 100%;
   height: 2.5rem;
 }
+
 
 
 

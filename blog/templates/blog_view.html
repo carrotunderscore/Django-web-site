@@ -36,13 +36,7 @@
           </div>
       </div>
 
-      <div class="rightcolumn">
-        {% if request.user.is_authenticated %}
-         <div class="card">
-              <a class="btn btn-primary" id="createPost" href="{% url 'create_post_view' %}" role="button"><h1>Create post</h1></a>
-         </div>
-        {% endif %}
-      </div>
+
     </div>
 
 </body>
