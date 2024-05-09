@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    {% load markdown_tags %}
+    {% csrf_token %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script src="{% static 'javascript/blog.js' %}"></script>
+
+</head>
+<body>
+    {% if request.user.is_authenticated %}
+     <div class="header">
+      <h2>Admin page</h2>
+    </div>
+
+    {% endif %}
+
+    <div class="row">
+      <div class="leftcolumn">
+          <div class="card">
+              <input type="hidden" id="blogId">
+              <h2>{{ blogList.title }}</h2>
+              <h5>{{ blogList.published_date }}</h5>
+              {% autoescape off %}
+                <p>{% markdown_heading blogList.content|safe|linebreaks %} </p>
+              {% endautoescape %}
+
+          </div>
+      </div>
+
+
+    </div>
+
+</body>
+{% endblock %}
+</html>

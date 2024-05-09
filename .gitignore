@@ -16,3 +16,5 @@ staticfiles/
 
 # Media files (uploaded by users)
 media/
+
+usersettings.json

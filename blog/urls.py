@@ -21,7 +21,7 @@ app_name = "blog"
 
 urlpatterns = [
 
-    path('authentication/', include('authentication.urls')),
+    path('login/', include('authentication.urls')),
 
     path('', views.blog_posts_list_view, name='blog_view'),
     path('post/<int:pk>/', views.blog_post_view, name='blog_post_view'),
@@ -35,4 +35,5 @@ urlpatterns = [
     path('project/<int:pk>/', views.project_view, name='project_view'),
     path('delete_project/', views.delete_project, name='delete_project'),
     path('edit_project/<int:pk>/', views.edit_project_view, name='edit_project'),
+    path('about_me', views.about_me_view, name='about_me_view'),
 ]

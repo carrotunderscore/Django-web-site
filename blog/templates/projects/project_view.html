@@ -26,8 +26,8 @@
               <input type="hidden" id="blogId">
               <h2>{{ project.title }}</h2>
               <h5>{{ project.published_date }}</h5>
-              <h5>{{ project.githubUrl }}</h5>
-              <img src="{{ project.imageUrl }}">
+              <h6>Github URL:<br><a href="{{ project.githubUrl }}">{{ project.githubUrl }}</a></h6>
+              <a href="{{ project.imageUrl }}"><img src="{{ project.imageUrl }}"></a>
               {% autoescape off %}
                 <p>{% markdown_heading project.content|safe|linebreaks %} </p>
               {% endautoescape %}

@@ -18,21 +18,13 @@ def log_in_user(request):
             # authentication successful, log in the user
             login(request, user)
             # Redirect the user to a different page
-            return render(request, 'profile.html')
+            return render(request, 'blogPosts/blog_posts_list_view.html')
         else:
             # authentication failed, display an error message
-            return render(request, 'login.html', {'error_message': 'Invalid username or password'})
+            return render(request, 'blogPosts/blog_posts_list_view.html', {'error_message': 'Invalid username or password'})
     else:
         # Handle GET requests, such as displaying the login form
-        return render(request, 'login.html')
-
-
-def profile_view(request):
-    if request.user.is_authenticated:
-        context = {'username': request.user.username}
-    else:
-        context = {'username': None}
-    return render(request, 'profile.html', context)
+        return render(request, 'blogPosts/blog_posts_list_view.html')
 
 
 def sign_up_user(request):

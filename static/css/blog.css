@@ -111,7 +111,7 @@ br {
     align-content: left;
 }
 .linkListHeader a{
-    color: #f32441;
+    color: #726d00;
     position: relative;
     left: 1%;
 }
@@ -172,14 +172,14 @@ a{
     text-decoration: none;
 }
 a:hover{
-    color: #f32441;
+    color: #a29b00;
 }
 @font-face {
   font-family: 'GT America Black';
   src: url('{% static "fonts/GT-America/GT-America-Expanded-Bold-Trial.otf" %}') format('opentype');
 }
 .header_image:hover{
-    border: 34px solid #f32441;
+    border: 34px solid #a29b00;
     transition-duration: 0.5s;
     transition-property: border;
 }

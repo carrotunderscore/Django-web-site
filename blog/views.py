@@ -18,11 +18,11 @@ def blog_post_view(request, pk):
 
     context = {'username': None, "blogList": blogObject}
 
-    return render(request, 'blog_view.html', context)
+    return render(request, 'blogPosts/blog_view.html', context)
 
 
 def create_post_view(request):
-    return render(request, 'create_post_view.html')
+    return render(request, 'createPosts/create_post_view.html')
 
 
 def publish_post(request):
@@ -64,7 +64,7 @@ def edit_post_view(request, pk):
         form = EditPostForm(instance=post)
 
     context = {'form': form, 'post': post}
-    return render(request, 'edit_post.html', context)
+    return render(request, 'editPosts/edit_post.html', context)
 
 
 def blog_posts_list_view(request):
@@ -81,7 +81,7 @@ def blog_posts_list_view(request):
 
     context = {'username': None, "blogList": blogList}
 
-    return render(request, 'blog_posts_list_view.html', context)
+    return render(request, 'blogPosts/blog_posts_list_view.html', context)
 
 
 def projects_list_view(request):
@@ -105,16 +105,16 @@ def projects_list_view(request):
 
     context = {'username': None, "projectList": projectsList}
 
-    return render(request, 'projects_list_view.html', context)
+    return render(request, 'projects/projects_list_view.html', context)
 
 
 def create_project_view(request):
-    return render(request, 'create_project_view.html')
+    return render(request, 'createPosts/create_project_view.html')
 
 
 def publish_project(request):
     if request.method == 'POST':
-        raw_data = request.body.decode('utf-8')  # Decode bytes to string
+        raw_data = request.body.decode('utf-8')
         data = json.loads(raw_data)
         title = data.get('title')
         imageUrl = data.get('imageUrl')
@@ -129,7 +129,7 @@ def publish_project(request):
             author=user)
         newProject.save()
 
-        return render(request, 'projects_list_view.html')
+        return render(request, 'projects/projects_list_view.html')
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=400)
 
@@ -149,7 +149,7 @@ def project_view(request, pk):
         "githubUrl": post.github_url
     }
     context = {'username': None, "project": projectObject}
-    return render(request, 'project_view.html', context)
+    return render(request, 'projects/project_view.html', context)
 
 
 def delete_project(request):
@@ -171,8 +171,12 @@ def edit_project_view(request, pk):
             form.save()
             return redirect('/project/' + str(pk))
     else:
-        form = EditPostForm(instance=project)
+        form = EditProjectForm(instance=project)
 
     context = {'form': form, 'post': project}
-    return render(request, 'edit_project.html', context)
+    return render(request, 'editPosts/edit_project.html', context)
+
+
+def about_me_view(request):
+    return render(request, 'about_me_view.html')
 

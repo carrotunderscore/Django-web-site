@@ -23,8 +23,7 @@ from . import views
 app_name = "authentication"
 
 urlpatterns = [
-    path('login_view/', views.login_view, name='login_view'),
-    path('profile/', views.profile_view, name='profile_view'),
+    path('', views.login_view, name='login_view'),
     path('sign_up_user/', views.sign_up_user, name='sign_up_user'),
     path('signup_page/', views.signup_view, name='signup_view'),
     path('log_in_user/', views.log_in_user, name='log_in_user'),
