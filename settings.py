@@ -11,19 +11,26 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)+2lcrmw-yw36!e4%0rrix!8f4tor6%=@!jskgf&6!8supqt9m'
+settings_file_path = os.path.join(BASE_DIR, 'usersettings.json')
+try:
+    with open(settings_file_path, 'r') as settings_file:
+        settings_data = json.load(settings_file)
+except FileNotFoundError:
+    print("usersettings.json not found")
+    settings_data = {}  # Set an empty dictionary as a fallback
+SECRET_KEY = settings_data.get('secretKey')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["www.yourdomain.com", "127.0.0.1"]
 
@@ -79,7 +86,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 TEMPLATE_LOADERS = 'django.template.loaders.app_directories.load_template_source'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -128,7 +134,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR / 'firstDjangoProject/static'),  # Point to your static folder
+    os.path.join(BASE_DIR / 'static'),  # Point to your static folder
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
